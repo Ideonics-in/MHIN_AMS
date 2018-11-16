@@ -39,11 +39,11 @@ namespace UI
                     Name = NameTextBox.Text,
                     Tag = TagTextBox.Text,
                     Vendor = VendorTextBox.Text,
-                    MaintenanceInterval = MInterval,
-                    AlertInterval_FirstLevel = AInterval,
-                    MaintainedOn = OnDatePicker.SelectedDate.Value,
+                    AttentionInterval = MInterval,
+                    AlertInterval = AInterval,
+                    AttendedOn = OnDatePicker.SelectedDate.Value,
                     Location = LocationTextBox.Text,
-                    MaintainanceDue = OnDatePicker.SelectedDate.Value.AddDays(MInterval)
+                    AttentionDue = OnDatePicker.SelectedDate.Value.AddDays(MInterval)
                   
                     
                 });

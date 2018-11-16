@@ -30,6 +30,9 @@ namespace UI
         User User;
 
         ObservableCollection<Asset> Assets;
+        
+
+
 
         public MainWindow()
         {
@@ -37,7 +40,7 @@ namespace UI
 
             login = new Login();
             login.LoginEvent += Login_LoginEvent;
-
+            Keyboard.Focus(login.UsernameTextBlock);
             MainGrid.Children.Add(login);
         }
 
@@ -46,19 +49,36 @@ namespace UI
             using (var db = new AMSDB())
             {
                 var users = from u in db.Users
-                            where u.Email.Equals(e.Email) && u.Password.Equals(e.Password)
+                            where u.Username.Equals(e.Username) && u.Password.Equals(e.Password)
                            select u;
                 User = users.SingleOrDefault();
 
-                if (User == null) return;
+                if (User == null)
+                {
+                    MessageBox.Show("Invalid Username / Password", "Authentication Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    return;
+                }
 
-                var assets = from a in db.Assets
+                IEnumerable<Asset> assets = null;
+
+                if (User.Department == "Admin")
+                {
+                    assets = from a in db.Assets
                              select a;
+                }
+                else
+                {
+                    assets = (from a in db.Assets
+                             where a.Department == User.Department
+                             select a).OrderBy(n => n.Name);
+                }
+                 
 
                 Assets = new ObservableCollection<Asset>();
 
                 foreach(Asset a in assets)
                 {
+                    a.Update();
                     Assets.Add(a);
                 }
 
@@ -94,6 +114,40 @@ namespace UI
 
         private void AssetGrid_SaveEvent(object sender, EventArgs e)
         {
+            using (var db = new AMSDB())
+            {
+                var dbassets = (from a in db.Assets
+                          where a.Department == User.Department
+                          select a).OrderBy(n => n.Name);
+
+                foreach (Asset a in dbassets)
+                {
+                    foreach(Asset b in Assets)
+                    {
+                        
+                        if (a.ID == b.ID)
+                        {
+                            b.Update();
+                            a.AttendedOn = b.AttendedOn;
+                            break;
+                        }
+                           
+                    }
+                    
+                    
+                }
+                this.Dispatcher.BeginInvoke(DispatcherPriority.Background,
+                          new Action(() =>
+                          {
+                              AssetGrid.AssetDataGrid.DataContext = null;
+                              AssetGrid.AssetDataGrid.DataContext = Assets;
+
+                              MessageBox.Show("Assets Updated", "Update Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                          }));
+                db.SaveChanges();
+
+               
+            }
             
         }
 
@@ -125,6 +179,8 @@ namespace UI
             this.Dispatcher.BeginInvoke(DispatcherPriority.Background,
                           new Action(() =>
                           {
+                              if(User != null)
+                                  e.Department = User.Department;
 
                               using (var db = new AMSDB())
                               {

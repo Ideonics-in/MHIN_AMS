@@ -20,40 +20,41 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Label   Content="Asset Name:" Foreground="White" MinWidth="200"  HorizontalAlignment="Right" HorizontalContentAlignment="Right" 
+            <Label   Content="Asset Name:" Foreground="White" MinWidth="250"  HorizontalAlignment="Right" HorizontalContentAlignment="Right" 
                      FontSize="20"></Label>
                 <TextBox Name="NameTextBox" MinWidth="300" Margin="5" FontSize="20" Padding="5"     />
             </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Label   Content="Asset Tag:" Foreground="White" MinWidth="200"  HorizontalAlignment="Right" HorizontalContentAlignment="Right" 
+            <Label   Content="Asset Tag:" Foreground="White" MinWidth="250"  HorizontalAlignment="Right" HorizontalContentAlignment="Right" 
                      FontSize="20"></Label>
             <TextBox Name="TagTextBox" MinWidth="300" Margin="5" FontSize="20" Padding="5"    />
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Label   Content="Vendor:" Foreground="White" MinWidth="200"  HorizontalAlignment="Right" HorizontalContentAlignment="Right" 
+            <Label   Content="Attended By:" Foreground="White" MinWidth="250"  HorizontalAlignment="Right" HorizontalContentAlignment="Right" 
                      FontSize="20"></Label>
             <TextBox Name="VendorTextBox" MinWidth="300" Margin="5" FontSize="20" Padding="5"    />
         </StackPanel>
 
         <StackPanel Grid.Row="3" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Label   Content="Maintenance Interval:" Foreground="White" MinWidth="200"  HorizontalAlignment="Right" HorizontalContentAlignment="Right" 
+            <Label   Content="Attention Interval (days):" Foreground="White" MinWidth="250"  HorizontalAlignment="Left" 
+                     HorizontalContentAlignment="Right"
                      FontSize="20"></Label>
             <TextBox Name="MIntervalTextBox" MinWidth="300" Margin="5" FontSize="20" Padding="5"    />
         </StackPanel>
         <StackPanel Grid.Row="4" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Label   Content="Alert Interval:" Foreground="White" MinWidth="200"  HorizontalAlignment="Right" HorizontalContentAlignment="Right" 
+            <Label   Content="Alert Interval (days):" Foreground="White" MinWidth="250"  HorizontalAlignment="Right" HorizontalContentAlignment="Right" 
                      FontSize="20"></Label>
             <TextBox Name="AlertTextBox" MinWidth="300" Margin="5" FontSize="20" Padding="5"    />
         </StackPanel>
 
         <StackPanel Grid.Row="5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Label   Content="Location:" Foreground="White" MinWidth="200"  HorizontalAlignment="Right" HorizontalContentAlignment="Right" 
+            <Label   Content="Location:" Foreground="White" MinWidth="250"  HorizontalAlignment="Right" HorizontalContentAlignment="Right" 
                      FontSize="20"></Label>
             <TextBox Name="LocationTextBox" MinWidth="300" Margin="5" FontSize="20" Padding="5"    />
         </StackPanel>
 
         <StackPanel Grid.Row="6" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Label   Content="Previous Maintenance:" Foreground="White" MinWidth="200"  HorizontalAlignment="Right" HorizontalContentAlignment="Right" 
+            <Label   Content="Attended On:" Foreground="White" MinWidth="250"  HorizontalAlignment="Right" HorizontalContentAlignment="Right" 
                      FontSize="20"></Label>
             <dg:DatePicker Name="OnDatePicker" MinWidth="300" Margin="5" FontSize="20" Padding="5"    />
         </StackPanel>

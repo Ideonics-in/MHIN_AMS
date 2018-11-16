@@ -24,9 +24,13 @@ namespace UI
         public event EventHandler AddEvent;
         public event EventHandler DeleteEvent;
         public event EventHandler SaveEvent;
+
+        public String Department;
         public AssetGrid()
         {
             InitializeComponent();
+
+            
         }
 
 

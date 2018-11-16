@@ -24,16 +24,17 @@ namespace UI
         public Login()
         {
             InitializeComponent();
+            UsernameTextBlock.Focus();
         }
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            this.LoginEvent?.Invoke(this,new LoginArgs { Email = EmailTextBlock.Text, Password = tbPassword.Password });
+            this.LoginEvent?.Invoke(this,new LoginArgs { Username = UsernameTextBlock.Text, Password = tbPassword.Password });
         }
     }
 
     public class LoginArgs
     {
-        public String Email { get; set; }
+        public String Username { get; set; }
         public String Password { get; set; }
     }
 }

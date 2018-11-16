@@ -24,9 +24,9 @@
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0" Grid.Row="0" Content="Email:" Foreground="White" MinWidth="100" 
+                    <Label Grid.Column="0" Grid.Row="0" Content="Username:" Foreground="White" MinWidth="100" 
                            HorizontalAlignment="Right" HorizontalContentAlignment="Right" FontSize="20"></Label>
-                    <TextBox Name="EmailTextBlock" Grid.Column="1" Grid.Row="0" MinWidth="300" 
+                    <TextBox Name="UsernameTextBlock" Grid.Column="1" Grid.Row="0" MinWidth="300" 
                           Margin="5" FontSize="20" 
                           Padding="5"    />
                 </Grid>

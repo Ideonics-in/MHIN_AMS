@@ -37,10 +37,10 @@
                                      CanUserReorderColumns="False" CanUserResizeColumns="False" 
                                      CanUserSortColumns="False" HorizontalAlignment="Center" VerticalAlignment="Top"
                                      HorizontalContentAlignment="Center" Foreground="Black"
-                                     ItemsSource="{Binding}"   VerticalScrollBarVisibility="Auto" Margin="10" 
+                                     ItemsSource="{Binding}"   VerticalScrollBarVisibility="Auto" Margin="5" 
                                          SelectionMode="Single" IsReadOnly="False" SelectionUnit="Cell" >
                         <wpftoolkit:DataGrid.Columns >
-                            <wpftoolkit:DataGridTemplateColumn Width="200" Header="Name"  IsReadOnly="True"  CanUserReorder="False"  >
+                            <wpftoolkit:DataGridTemplateColumn MinWidth="600" Header="Name"  IsReadOnly="True"  CanUserReorder="False"  >
                                 <wpftoolkit:DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock  Text="{Binding Name  }" FontSize="15"  />
@@ -57,38 +57,35 @@
                             <wpftoolkit:DataGridTextColumn Header="Location" Binding="{Binding Path=Location, Mode=TwoWay}" IsReadOnly="False"   CanUserReorder="False"  >
 
                             </wpftoolkit:DataGridTextColumn>
-                            <wpftoolkit:DataGridTextColumn Header="Maintained By" Binding="{Binding Path=Vendor, Mode=TwoWay}" IsReadOnly="False"   CanUserReorder="False"  >
+                            <wpftoolkit:DataGridTextColumn Header="Attended By" Binding="{Binding Path=Vendor, Mode=TwoWay}" IsReadOnly="False"   CanUserReorder="False"  >
                                
                             </wpftoolkit:DataGridTextColumn>
 
-                            <wpftoolkit:DataGridTextColumn Header="Maintenance Interval(Days)"  Binding="{Binding MaintenanceInterval, Mode=TwoWay}"  CanUserReorder="False"  >
+                            <wpftoolkit:DataGridTextColumn Header="Attention Interval(Days)"  Binding="{Binding AttentionInterval, Mode=TwoWay}"  CanUserReorder="False"  >
 
                             </wpftoolkit:DataGridTextColumn>
 
 
-                            <wpftoolkit:DataGridTextColumn Header="First Level Alert Interval(Days)"   Binding="{Binding AlertInterval_FirstLevel,  Mode=TwoWay}" CanUserReorder="False"  >
+                            <wpftoolkit:DataGridTextColumn Header="Alert Interval(Days)"   Binding="{Binding AlertInterval,  Mode=TwoWay}" CanUserReorder="False"  >
 
                             </wpftoolkit:DataGridTextColumn>
 
-                            <wpftoolkit:DataGridTextColumn Header="Second Level Alert Interval(Days)"   Binding="{Binding AlertInterval_SecondLevel,  Mode=TwoWay}" CanUserReorder="False"  >
-
-                            </wpftoolkit:DataGridTextColumn>
-
-                            <wpftoolkit:DataGridTemplateColumn Header="Previous Maintenance" IsReadOnly="False"    CanUserReorder="False"  >
+                       
+                            <wpftoolkit:DataGridTemplateColumn Header="Attended On" IsReadOnly="False"    CanUserReorder="False"  >
                                 <wpftoolkit:DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <wpftoolkit:DatePicker  SelectedDate="{Binding MaintainanceCompleted, Mode=TwoWay}" FontSize="15"  />
+                                        <wpftoolkit:DatePicker  SelectedDate="{Binding AttendedOn, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontSize="15"  />
                                     </DataTemplate>
                                 </wpftoolkit:DataGridTemplateColumn.CellTemplate>
                             </wpftoolkit:DataGridTemplateColumn>
-                            <wpftoolkit:DataGridTemplateColumn Header="Next Maintenance" IsReadOnly="True"  CanUserReorder="False"  >
+                            <wpftoolkit:DataGridTemplateColumn Header="Attention Due" IsReadOnly="True"  CanUserReorder="False"  >
                                 <wpftoolkit:DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <wpftoolkit:DatePicker IsEnabled="False"  SelectedDate="{Binding MaintainanceDue}" FontSize="15"  />
+                                        <wpftoolkit:DatePicker IsEnabled="False"  SelectedDate="{Binding AttentionDue,UpdateSourceTrigger=PropertyChanged}" FontSize="15"  />
                                     </DataTemplate>
                                 </wpftoolkit:DataGridTemplateColumn.CellTemplate>
                             </wpftoolkit:DataGridTemplateColumn>
-                            <wpftoolkit:DataGridTemplateColumn Header="Delete" IsReadOnly="True"  CanUserReorder="False"  >
+                            <wpftoolkit:DataGridTemplateColumn Header="Delete" IsReadOnly="True"  CanUserReorder="False" Visibility="Collapsed"  >
                                 <wpftoolkit:DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <CheckBox IsChecked="{Binding Path=Selected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
@@ -113,7 +110,7 @@
                         <Button Name="AddAssetButton" Height="Auto" MinWidth="50" Margin="5,15" HorizontalContentAlignment="Center"
                      HorizontalAlignment="Center" VerticalAlignment="Center" Padding="5" Click="AddAssetButton_Click">Add</Button>
                         <Button Name="FrametbTotalFserial" Height="Auto" MinWidth="50" Margin="5,15" HorizontalContentAlignment="Center"
-                     HorizontalAlignment="Center" VerticalAlignment="Center" Padding="5" >Delete</Button>
+                     HorizontalAlignment="Center" VerticalAlignment="Center" Padding="5" Visibility="Hidden">Delete</Button>
                         <Button Name="FrametbTotalIserial" Height="Auto" MinWidth="50" Margin="5,15" HorizontalContentAlignment="Center"
                      HorizontalAlignment="Center" VerticalAlignment="Center" Padding="5"  Click="SaveAssetButton_Click">Save</Button>
                         
