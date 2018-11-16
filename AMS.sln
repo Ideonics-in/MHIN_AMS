@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{8508E14F-A1D7-4350-A448-074CA7F9B550}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{6C44D5A2-81E3-4128-9469-AF4AAC792D42}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{8508E14F-A1D7-4350-A448-074CA7F9B550}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8508E14F-A1D7-4350-A448-074CA7F9B550}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8508E14F-A1D7-4350-A448-074CA7F9B550}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C44D5A2-81E3-4128-9469-AF4AAC792D42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C44D5A2-81E3-4128-9469-AF4AAC792D42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C44D5A2-81E3-4128-9469-AF4AAC792D42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C44D5A2-81E3-4128-9469-AF4AAC792D42}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
